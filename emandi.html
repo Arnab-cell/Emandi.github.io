@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-MANDI | Electronic Vegetable Market</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        
+        nav a {
+            color: white;
+            padding: 14px 25px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: url('abcc.jpg'); 
+            background-size: cover;
+            color: rgb(241, 246, 238);
+            padding: 250px 350px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin: 10px 0 20px;
+        }
+        
+        .hero button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .hero button:hover {
+            background-color: #acd254;
+        }
+        
+        /* Container and Cards */
+        .container {
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .card {
+            background-color: rgb(179, 243, 130);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+        
+        .card p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Pricing Section */
+        #pricing {
+            padding: 50px 20px;
+        }
+        
+        #pricing h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        #pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        #pricing-table th, #pricing-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        #pricing-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Vegetable List Section */
+        #vegetable-list {
+            padding: 50px 20px;
+        }
+        
+        #vegetable-list h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        #vegetable-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .vegetable-card {
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .vegetable-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .vegetable-card h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #4CAF50;
+        }
+        
+        .vegetable-card p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Registration Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+        
+        form label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        form input, form select, form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        form button:hover {
+            background-color: #45a049;
+        }
+        
+        /* Help & FAQs Section */
+        #help {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+        
+        #help h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .faq {
+            margin-bottom: 20px;
+        }
+        
+        .faq h3 {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+        
+        .faq p {
+            margin: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        </style>  
+</head>
+<body>
+    <header>
+        <h1>e-MANDI | Electronic Vegetable Market</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#login">Login</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#vegetable-list">Vegetable List</a>
+        <a href="#register">Register</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#help">Help</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to e-MANDI</h1>
+            <p>Connecting farmers, retailers, and civilians for a transparent and fair market</p>
+            <button id="learn-more-btn">Learn More</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="card">
+            <h2>For Farmers</h2>
+            <p>Access real-time market prices and ensure you get the best value for your produce.</p>
+        </div>
+
+        <div class="card">
+            <h2>For Retailers</h2>
+            <p>View wholesale prices, manage inventory, and connect with trusted suppliers.</p>
+        </div>
+
+        <div class="card">
+            <h2>For Civilians</h2>
+            <p>Find the best prices for your vegetables and compare prices across different regions.</p>
+        </div>
+
+        <div class="card">
+            <h2>For Wholesalers</h2>
+            <p>Manage bulk orders, track sales, and maintain transparency with retailers.</p>
+        </div>
+    </div>
+
+    <body>
+        <section id="login">
+        <h2>Login</h2>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="loginBtn">Open</button>
+        
+        <!-- The Modal -->
+        <div id="loginModal" class="modal">
+        
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="/submit_login" method="POST">
+                    <label for="email"><b>Email:</b></label>
+                    <input type="text" placeholder="Enter your email" name="email" required>
+        
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+            </div>
+        
+        </div>
+
+        
+    <script src="scripts.js"></script>
+    </body>
+
+    <section id="pricing">
+        <h2>Current Market Prices</h2>
+        <table id="pricing-table">
+            <thead>
+                <tr>
+                    <th>Vegetable</th>
+                    <th>Retail Price (per kg)</th>
+                    <th>Wholesale Price (per kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic content will be inserted here by JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="vegetable-list">
+        <h2>Vegetable List</h2>
+        <div id="vegetable-cards">
+            <!-- Dynamic content will be inserted here by JS -->
+        </div>
+    </section>
+
+    
+    <section id="register">
+        <h2>Register</h2>
+        <form id="registration-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="user-type">I am a:</label>
+            <select id="user-type" name="user-type" required>
+                <option value="farmer">Farmer</option>
+                <option value="retailer">Retailer</option>
+                <option value="civilian">Civilian</option>
+                <option value="wholesaler">Wholesaler</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <section id="dashboard">
+        <h2>User Dashboard</h2>
+        <div id="user-dashboard">
+            <!-- Dynamic content will be inserted here by JS -->
+        </div>
+        <button id="logout-btn">Logout</button>
+    </section>
+
+    <section id="payment">
+        <h2>Payment Gateway</h2>
+        <form id="payment-form">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+
+            <label for="card-name">Cardholder Name:</label>
+            <input type="text" id="card-name" name="card-name" required>
+
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="month" id="expiry-date" name="expiry-date" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </section>
+
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <label for="feedback-text">Your Feedback:</label>
+            <textarea id="feedback-text" name="feedback-text" required></textarea>
+
+            <label for="complaint">Is this a complaint?</label>
+            <input type="checkbox" id="complaint" name="complaint">
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+
+    <section id="help">
+        <h2>Help & FAQs</h2>
+        <div class="faq">
+            <h3>How do I register?</h3>
+            <p>You can register by filling out the form in the "Register" section above.</p>
+        </div>
+        <div class="faq">
+            <h3>How can I compare prices?</h3>
+            <p>The "Current Market Prices" section provides a comparison of retail and wholesale prices.</p>
+        </div>
+        <div class="faq">
+            <h3>How do I give feedback?</h3>
+            <p>Use the "Feedback" section to share your thoughts or report an issue.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#help">Help</a>
+        </div>
+        <p>&copy; 2024 e-MANDI. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+ // When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+        // your code goes here
+document.getElementById('learn-more-btn').addEventListener('click', function() {
+    alert('Learn more about e-MANDI! Explore the features that help farmers, retailers, wholesalers, and civilians.');
+});
+
+     
+// Dynamic Pricing Table
+const pricingTable = document.querySelector('#pricing-table tbody');
+const vegetables = [
+    { name: 'Tomato', retailPrice: 30, wholesalePrice: 25 },
+    { name: 'Potato', retailPrice: 20, wholesalePrice: 15 },
+    { name: 'Onion', retailPrice: 40, wholesalePrice: 35 },
+    { name: 'Carrot', retailPrice: 50, wholesalePrice: 45 }
+];
+
+vegetables.forEach(veg => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${veg.name}</td>
+        <td>₹${veg.retailPrice}</td>
+        <td>₹${veg.wholesalePrice}</td>
+    `;
+    pricingTable.appendChild(row);
+});
+
+// Vegetable List
+const vegetableCards = document.querySelector('#vegetable-cards');
+vegetables.forEach(veg => {
+    const card = document.createElement('div');
+    card.className = 'vegetable-card';
+    card.innerHTML = `
+        <h3>${veg.name}</h3>
+        <p>Retail Price: ₹${veg.retailPrice} per kg</p>
+        <p>Wholesale Price: ₹${veg.wholesalePrice} per kg</p>
+    `;
+    vegetableCards.appendChild(card);
+});
+
+// Get the modal
+var modal = document.getElementById("loginModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("loginBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+   modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+   modal.style.display = "none";
+}
+
+
+// Feedback Form Handling
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const feedbackText = document.getElementById('feedback-text').value;
+    const isComplaint = document.getElementById('complaint').checked;
+
+    if (feedbackText === '') {
+        alert('Please enter your feedback.');
+    } else {
+        if (isComplaint) {
+            alert('Thank you for your complaint. We will address it as soon as possible.');
+        } else {
+            alert('Thank you for your feedback!');
+        }
+    }
+});
+
+// User Dashboard
+const dashboard = document.getElementById('user-dashboard');
+document.getElementById('registration-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const userType = document.getElementById('user-type').value;
+
+    if (name && userType) {
+        dashboard.innerHTML = `
+            <h3>Welcome, ${name}</h3>
+            <p>User Type: ${userType}</p>
+            <p>Here you can manage your account, view your orders, and more.</p>
+        `;
+    }
+});
+
+document.getElementById('logout-btn').addEventListener('click', function() {
+    dashboard.innerHTML = '';
+    alert('You have logged out successfully.');
+});
+
+// Payment Gateway Form Handling
+document.getElementById('payment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const cardNumber = document.getElementById('card-number').value;
+    const cardName = document.getElementById('card-name').value;
+    const expiryDate = document.getElementById('expiry-date').value;
+    const cvv = document.getElementById('cvv').value;
+
+    if (cardNumber && cardName && expiryDate && cvv) {
+        alert('Payment processed successfully. Thank you for your purchase!');
+    } else {
+        alert('Please fill out all payment details.');
+    }
+});
+</script>
+</body>
+</html>
